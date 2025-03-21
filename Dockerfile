@@ -1,6 +1,8 @@
 FROM alpine:latest
 ENV UPLOADSIZE="128M"
 ENV USER="bashupload"
+ENV UID="99"
+ENV GID="100"
 
 RUN apk add --no-cache nginx php82 php82-fpm shadow tzdata
 
