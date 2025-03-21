@@ -19,5 +19,5 @@ docker run --name bashupload\
     -e UID=99 \
     -e GID=100 \
     -p 80:80/tcp \
-    -d mainfrezzer/bashupload
+    -d ghcr.io/mainfrezzer/bashupload
 </pre>
