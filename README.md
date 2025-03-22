@@ -16,6 +16,7 @@ docker run --name bashupload\
     --restart unless-stopped\
     -v /my/own/appdir:/app\
     -v /my/own/appfiledir:/app/files `#optional`\
+    -e UPLOADSIZE=128M `#Use 128M, 1G or 10G to set the size`\
     -e UID=99 \
     -e GID=100 \
     -p 80:80/tcp \
