@@ -3,13 +3,12 @@ ENV UPLOADSIZE="128M"
 ENV USER="bashupload"
 ENV UID="99"
 ENV GID="100"
-
 RUN apk add --no-cache nginx php82 php82-fpm shadow tzdata
 
-RUN mkdir -p /run/nginx /app /source
+RUN mkdir -p /run/nginx /app /src
 
 COPY default.conf /etc/nginx/http.d/default.conf
-COPY src/ /source
+ADD https://github.com/IO-Technologies/bashupload.git /src
 COPY additions/ /
 
 RUN deluser --remove-home games && deluser --remove-home guest \

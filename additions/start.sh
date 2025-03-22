@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ -z "$(find /app -mindepth 1 -not -path '/app/files*' -print -quit)" ]; then
   echo ---Setting up app---
-  cp -r /source/* /app
+  cp -r /src/* /app
 fi
 
 sed -i "
