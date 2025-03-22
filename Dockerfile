@@ -7,7 +7,6 @@ RUN apk add --no-cache nginx php82 php82-fpm shadow tzdata
 
 RUN mkdir -p /run/nginx /app /src
 
-COPY default.conf /etc/nginx/http.d/default.conf
 ADD https://github.com/IO-Technologies/bashupload.git /src
 COPY additions/ /
 
