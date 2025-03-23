@@ -3,6 +3,8 @@ if [ -z "$(find /app -mindepth 1 -not -path '/app/files*' -print -quit)" ]; then
   echo ---Setting up app---
   cp -r /src/* /app
 fi
+#Temporary fix
+sed -i 's|/etc/mime.types|/etc/nginx/mime.types|' /app/lib.php
 
 sed -i "
 s/client_max_body_size .*;/client_max_body_size ${UPLOADSIZE};/;
