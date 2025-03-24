@@ -19,7 +19,9 @@ convert_to_bytes() {
     local size="$1"
     local unit="${size: -1}"
     local value="${size:0:${#size}-1}"
-
+    if [[ ! "$unit" =~ [TGMK] ]]; then
+        value="$size"
+    fi
     case "$unit" in
 	T)  echo $((value * 1024 * 1024 * 1024 * 1024))	;;
 	G)  echo $((value * 1024 * 1024 * 1024))	;; 
