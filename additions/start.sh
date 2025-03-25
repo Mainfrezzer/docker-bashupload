@@ -4,6 +4,22 @@ if [ -z "$(find /app -mindepth 1 -not -path '/app/files*' -print -quit)" ]; then
   cp -r /src/* /app
 fi
 
+#Version check and notify
+
+if [[ ! -f /app/version.txt ]]; then
+    echo "No version file detected"
+    echo "It's recommended to install the newest version that's included in the container."
+    echo "To update you can simply delete all files and folder in /app,"
+    echo "/app/files excluded, and restart the container."
+    echo "If you have modified some files, save them beforehand to reapply the customization"
+elif [[ $(cat /app/version.txt) != $(cat /src/version.txt) ]]; then
+    echo "Different version detected"
+    echo "It's recommended to update to the newest version."
+    echo "To update you can simply delete all files and folder in /app,"
+    echo "/app/files excluded, and restart the container."
+    echo "If you have modified some files, save them beforehand to reapply the customization"
+fi
+
 if [ ! -d /app/files/tmp ]; then
 mkdir /app/files/tmp
 fi
