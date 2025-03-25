@@ -5,7 +5,7 @@ ENV UID="99"
 ENV GID="100"
 RUN apk add --no-cache apache2 php82-apache2 php82 shadow tzdata
 
-RUN mkdir -p /run/apache2 /app /src /var/files/tmp
+RUN mkdir -p /run/apache2 /app /src
 
 ADD https://github.com/Mainfrezzer/bashupload.git#docker-container /src
 
