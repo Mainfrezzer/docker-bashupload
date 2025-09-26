@@ -35,7 +35,7 @@ convert_to_bytes() {
     local size="$1"
     local unit="${size: -1}"
     local value="${size:0:${#size}-1}"
- 
+
     case "$unit" in
 	T)  echo $((value * 1024 * 1024 * 1024 * 1024))	;;
 	G)  echo $((value * 1024 * 1024 * 1024))	;; 
@@ -53,7 +53,7 @@ sed -i "
 s/LimitRequestBody .*/LimitRequestBody ${UPLOADSIZE_BYTES}/;
 s/post_max_size = .*/post_max_size = ${UPLOADSIZE}/;
 s/upload_max_filesize = .*/upload_max_filesize = ${UPLOADSIZE}/
-" /etc/apache2/httpd.conf /etc/php82/php.ini
+" /etc/apache2/httpd.conf /etc/${PHPV}/php.ini
 
 groupmod --gid ${GID} ${USER} > /dev/null
 usermod --uid ${UID} --gid ${GID} ${USER} > /dev/null

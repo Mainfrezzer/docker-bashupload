@@ -4,7 +4,7 @@ sleep 1
 httpd  > /dev/null 2>&1
 sleep 1
 echo ---Cleaning old files---
-php82 /app/tasks/clean.php
+${PHPV} /app/tasks/clean.php
 rm -rfv /app/files/tmp/*
 sleep 1
 echo ---...Started---
