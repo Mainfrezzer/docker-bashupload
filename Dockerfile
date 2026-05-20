@@ -3,7 +3,7 @@ ENV UPLOADSIZE="128M"
 ENV USER="bashupload"
 ENV UID="99"
 ENV GID="100"
-ENV PHPV="php84"
+ENV PHPV="php85"
 RUN apk add --no-cache apache2 ${PHPV}-apache2 ${PHPV} shadow tzdata
 
 RUN mkdir -p /run/apache2 /app /src
